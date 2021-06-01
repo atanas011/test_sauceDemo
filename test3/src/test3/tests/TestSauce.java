@@ -27,7 +27,6 @@ import test3.models.Inventory;
 public class TestSauce {
 
 	private static WebDriver driver;
-	private static Screenshot Screenshot;
 
 	@BeforeClass
 	public void createDriver() {
@@ -99,9 +98,9 @@ public class TestSauce {
 		driver.navigate().to(Inventory.URL);
 		Inventory.sortByPrice(driver);
 		
-		Screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
 		try {
-			ImageIO.write(Screenshot.getImage(), "jpg", new File("C:\\Users\\Lenovo\\eclipse-workspace\\test3\\src\\test3\\tests\\test.jpg"));
+			ImageIO.write(screenshot.getImage(), "jpg", new File("C:\\Users\\Lenovo\\eclipse-workspace\\test3\\src\\test3\\tests\\test.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
